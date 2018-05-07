@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 15, 2018 4:17:05 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+   <class name="com.applause.dto.UserProfileDto" table="User_Profile">
+   	<id name="user_id" type="long">
+   		<column name="User_Id"></column>
+   		<generator class="increment"></generator>
+   	</id>
+   	<property name="user_name" type="java.lang.String">
+   		<column name="User_Name"></column>
+   	</property>
+   	<property name="address1" type="java.lang.String">
+   		<column name="Address1"></column>
+   	</property>
+   	<property name="address2" type="java.lang.String">
+   		<column name="Address2"></column>
+   	</property>
+   	<property name="city" type="java.lang.String">
+   		<column name="City"></column>
+   	</property>
+   	<property name="state" type="java.lang.String">
+   		<column name="State"></column>
+   	</property>
+   	<property name="country" type="java.lang.String">
+   		<column name="Country"></column>
+   	</property>
+   	<property name="mobile" type="java.lang.String">
+   		<column name="Mobile"></column>
+   	</property>
+	<property name="email" type="java.lang.String">
+		<column name="Email"></column>
+	</property>
+	<property name="postal_code" type="java.lang.String">
+		<column name="Postal_Code"></column>
+	</property>
+	<property name="password" type="java.lang.String">
+		<column name="password"></column>
+	</property>
+   </class>
+   
+</hibernate-mapping>

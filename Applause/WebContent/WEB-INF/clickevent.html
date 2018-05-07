@@ -1,0 +1,61 @@
+<html ng-app="clickmodule">
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		
+	</head>
+	<body>
+		<div ng-controller="clickcontroller">
+			<table>
+				<thead>
+					<th>Name</th>
+					<th>Lines</th>
+					<th>DisLikes</th>
+					<th>Likes/DisLikes</th>
+				</thead>
+				<tbody>
+					<tr ng-repeat="technology in technologies">
+						{{message}}
+						<td>{{technology.name}}</td>
+						<td>{{technology.likes}}</td>
+						<td>{{technology.dislikes}}</td>
+						<td>
+
+							<input type="button" value="Like" ng-click="incrementlikes(technology)">
+							<input type="button" value="DisLike" ng-click="incrementdislikes(technology)">
+
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<input type="text" ng-model="main.message">
+			<a href="" ng-click="main.Showmessage(main.message);">
+				message:
+			</a>
+			<div>{{main.message}}</div>
+		</div>
+		<script>
+			var myapp=angular.module("clickmodule",[]).controller("clickcontroller",function($scope){
+				var technologies=[
+							{name:"java",likes:0,dislikes:0,count:0},
+							{name:"spring",likes:0,dislikes:0,count:0},
+							{name:"webservices",likes:0,dislikes:0,count:0},
+						];
+						$scope.technologies=technologies;
+						
+						$scope.incrementlikes=function(technology)
+						{
+							technology.likes++;
+						}
+						$scope.incrementdislikes=function(technology)
+						{
+							technology.dislikes++;
+							technology.count=!technology.count;
+						}
+			});
+		</script>
+	</body>
+</html>

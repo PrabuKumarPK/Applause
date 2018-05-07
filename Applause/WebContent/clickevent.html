@@ -1,0 +1,90 @@
+<html ng-app="clickmodule">
+	<head>
+	  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+	<link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+	
+	</head>
+	<body>
+		<div class="jumbotron text-center">
+  <h1>My First Bootstrap Page</h1>
+  <p>Resize this responsive page to see the effect!</p> 
+</div>
+  
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      <h3>Column 1</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+    </div>
+    <div class="col-sm-4">
+      <h3>Column 2</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+    </div>
+    <div class="col-sm-4">
+      <h3>Column 3</h3>        
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+    </div>
+  </div>
+</div>
+<div>
+
+			<table>
+				<thead>
+					<th>Name</th>
+					<th>Lines</th>
+					<th>DisLikes</th>
+					<th>Likes/DisLikes</th>
+				</thead>
+				<tbody>
+					<tr ng-repeat="technology in technologies">
+						{{message}}
+						<td>{{technology.name}}</td>
+						<td>{{technology.likes}}</td>
+						<td>{{technology.dislikes}}</td>
+						<td>
+
+							<input type="button" value="Like" ng-click="incrementlikes(technology)">
+							<input type="button" value="DisLike" ng-click="incrementdislikes(technology)">
+
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<input type="text" ng-model="main.message">
+			<a href="" ng-click="main.Showmessage(main.message);">
+				message:
+			</a>
+			<div>{{main.message}}</div>
+		</div>
+		<script>
+			var myapp=angular.module("clickmodule",[]).controller("clickcontroller",function($scope){
+				var technologies=[
+							{name:"java",likes:0,dislikes:0,count:0},
+							{name:"spring",likes:0,dislikes:0,count:0},
+							{name:"webservices",likes:0,dislikes:0,count:0},
+						];
+						$scope.technologies=technologies;
+						
+						$scope.incrementlikes=function(technology)
+						{
+							technology.likes++;
+							
+
+						}
+						$scope.incrementdislikes=function(technology)
+						{
+							technology.dislikes++;
+							technology.count=!technology.count;
+						}
+			});
+		</script>
+	</body>
+</html>
